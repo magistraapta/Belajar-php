@@ -20,12 +20,18 @@ function query ($query) {
 
 function tambah ($data){
     global $koneksi;
-    $username = $data["username"];
-    $password = $data["password"];
+    $username = htmlspecialchars($data["username"]);
+    $password = htmlspecialchars($data["password"]);
 
     $query = "INSERT INTO admin VALUES (NULL, '$username', '$password')";
 
     mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
+
+function hapus ($id ){
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM admin WHERE login_id = $id");
     return mysqli_affected_rows($koneksi);
 }
 ?>

@@ -4,7 +4,9 @@ require 'koneksi.php';
 
 if(isset($_POST["submit"])){
    if (tambah($_POST) > 0){
-    echo 'data berhasil ditambahkan';
+    echo "<script>
+    document.location.href = 'index.php';
+    </script>";
    } else {
     echo 'data gagal ditambahkan';
    }
@@ -28,12 +30,12 @@ if(isset($_POST["submit"])){
     <form class="" method="post">
         <div class="mb-3">
             <label class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="username" >
+            <input type="text" name="username" class="form-control" id="username" required >
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="password" >
+            <input type="password" name="password" class="form-control" id="password" required >
         </div>
         <!-- <div class="mb-3">
             <label  class="form-label">Password</label>

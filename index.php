@@ -25,20 +25,21 @@ $admin = query("SELECT * FROM admin")
 				<th scope="col">Password</th>
 				</tr>
 			</thead>
-			<tbody class="table-group-divider">
+			<tbody class="table-group-divider flex">
 				<?php $i = 1; ?>
 				<?php foreach ($admin as $row) : ?>
 				<tr>
 				<th scope="row"><?php echo $i++; ?></th>
 				<td><?php echo $row["username"] ?></td>
-				<td><?php echo $row["password"] ?></td>
+				<td class="border d-flex justify-content-between"><?php echo $row["password"] ?><button class="btn btn-danger"><a class="text-decoration-none text-white" href="hapus.php?id=<?php echo $row['login_id'] ?>">Hapus</a></button></td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
 	</div>
 
-	<div class="container">
+
+	<div class="container mb-5">
 		<div class="row">
 			<div class="col">
 			<button type="button" class="btn btn-primary"><a href="tambah.php" class="text-white text-decoration-none ">Tambah data</a></button>
